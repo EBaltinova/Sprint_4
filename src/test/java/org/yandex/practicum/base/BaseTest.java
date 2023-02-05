@@ -3,13 +3,11 @@ package org.yandex.practicum.base;
 import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.yandex.practicum.base.BasePage;
 import org.yandex.practicum.pages.Ordering;
 import org.yandex.practicum.pages.Questions;
 
 public class BaseTest {
-    private WebDriver chrome = new ChromeDriver();
+    private final WebDriver chrome = new ChromeDriver();
     //private WebDriver firefox = new FirefoxDriver();
     BasePage basePage = new BasePage(chrome);
     protected Ordering ordering = new Ordering(chrome);

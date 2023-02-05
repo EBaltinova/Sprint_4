@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.yandex.practicum.base.BasePage;
+
 import static org.hamcrest.CoreMatchers.containsString;
 
 public class Ordering extends BasePage {
@@ -14,7 +15,7 @@ public class Ordering extends BasePage {
     private final By inputSurName = By.xpath("//input[@class='Input_Input__1iN_Z Input_Responsible__1jDKN' and @placeholder='* Фамилия']"); // Инпут фамилия
     private final By inputAddress = By.xpath("//input[@class='Input_Input__1iN_Z Input_Responsible__1jDKN' and @placeholder='* Адрес: куда привезти заказ']"); // Инпут адрес
     private final By inputPhone = By.xpath("//input[@placeholder='* Телефон: на него позвонит курьер']"); // Инпут телефон
-    private final By inputMetro= By.xpath("//input[@placeholder='* Станция метро']"); // Инпут метро
+    private final By inputMetro = By.xpath("//input[@placeholder='* Станция метро']"); // Инпут метро
     private final By btnNext = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"); // Кнопка далее в форме заказа
     private final By inputDate = By.xpath("//input[@placeholder='* Когда привезти самокат']"); // Инпут даты
     private final By btnArrowRentalTime = By.xpath("//span[@class='Dropdown-arrow']"); // Стрелка в инпуте срок аренды
@@ -32,24 +33,25 @@ public class Ordering extends BasePage {
     }
 
     public Ordering orderButtonSelection(String btnClick) {
-        if(btnClick.equals("top")) {
+        if (btnClick.equals("top")) {
             clickOnElement(buttonTopToOrder);
         } else {
             scrollInOrder(buttonDownToOrder);
         }
         return this;
     }
+
     public Ordering enterDataInTheField(String name, String surName, String address, String phone) {
         findAndWaitElementAndSendKeys(inputName, name);
         findAndWaitElementAndSendKeys(inputSurName, surName);
         findAndWaitElementAndSendKeys(inputAddress, address);
-        findElementInPage(inputMetro).sendKeys(Keys.ARROW_DOWN , Keys.ENTER);
+        findElementInPage(inputMetro).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
         findAndWaitElementAndSendKeys(inputPhone, phone); // телефон деда мороза
         return this;
     }
 
     public void selectColorButton(String color) {
-        if(color.equals("grey")) {
+        if (color.equals("grey")) {
             clickOnElement(checkboxColorScooterGrey);
         } else {
             clickOnElement(checkboxColorScooterBlack);

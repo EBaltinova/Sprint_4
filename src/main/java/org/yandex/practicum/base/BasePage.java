@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 public class BasePage {
@@ -26,7 +27,7 @@ public class BasePage {
 
     public void scrollToElement(By element) {
         explicitWaitForElement(element);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(element));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(element));
     }
 
     public void findAndWaitElementAndSendKeys(By element, String text) {
@@ -40,7 +41,7 @@ public class BasePage {
 
     public String getText(By element) {
         WebElement getTextEl = driver.findElement(element);
-        return  getTextEl.getText();
+        return getTextEl.getText();
     }
 
     public WebElement findElementInPage(By element) {
